@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.lintan.videoplayer"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL"/>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+	<application
+		android:allowBackup="true"
+		android:icon="@mipmap/video_player_launcher"
+		android:label="@string/app_name"
+		android:supportsRtl="true"
+		android:theme="@style/AppTheme">
+		<activity
+			android:name=".activity.VideoCenterActivity"
+			android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden">
+		</activity>
+		<activity
+			android:name=".activity.VideoPlayActivity"
+			android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden"
+			android:theme="@style/Theme.AppCompat.NoActionBar">
+		</activity>
+		<activity
+			android:name=".activity.SplashLauncherActivity"
+			android:theme="@style/Theme.AppCompat.NoActionBar">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+
+				<category android:name="android.intent.category.LAUNCHER"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity android:name=".activity.AppInfoActivity">
+		</activity>
+
+		<service android:name=".service.FloatingWindowService">
+		</service>
+
+	</application>
+
+</manifest>

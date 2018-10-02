@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!--<color name="colorPrimary">#0FBF70</color>
+	<color name="colorPrimaryDark">#2FAF70</color>
+	<color name="colorAccent">#10AEEF</color>-->
+
+	<color name="colorPrimary">#40ADE5</color>
+	<color name="colorPrimaryDark">#0b87c7</color>
+	<color name="colorAccent">#bf50B4E6</color>
+	<!--10AEEF-->
+	<!--50B4E6-->
+	<!--40ADE5-->
+	<color name="colorBasicWhite">#ffffff</color>
+	<color name="colorBasicBlack">#000000</color>
+	<color name="colorBasicRed">#ff0000</color>
+	<color name="colorBasicGreen">#00ff00</color>
+	<color name="colorBasicBlue">#0000ff</color>
+
+	<color name="colorTextWhite">#efefefef</color>
+	<!--video shower color-->
+	<color name="colorActionbarBackground">@color/colorPrimaryDark</color>
+	<color name="colorActionbarText">#ffffff</color>
+
+	<!--list view divider color-->
+	<color name="colorListMainDivider">#2a2f2f2f</color>
+
+	<!--text name-->
+	<color name="colorListItemVideoName">#fe000000</color>
+	<color name="colorListItemVideoDetail">#de212121</color>
+
+	<!--copy from video player-->
+	<color name="colorEmptyText">#4D000000</color>
+	<color name="colorItemTitleText">#DF000000</color>
+	<color name="colorItemDateText">#8A000000</color>
+	<color name="colorDetailItemText">#DF000000</color>
+
+	<!--newly-->
+	<color name="colorEmptyList">@color/colorEmptyText</color>
+	<color name="colorSplashImage">#cf40adee</color>
+	<color name="colorVideoListItem">#aaefefef</color>
+
+	<color name="colorFloatingWindow">#00000000</color>
+</resources>

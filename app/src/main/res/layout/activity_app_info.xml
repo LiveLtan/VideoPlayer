@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/colorAccent"
+	android:id="@+id/app_info_root_lay">
+
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="80dp"
+		android:src="@mipmap/video_player_launcher"
+		android:id="@+id/app_info_title_image"/>
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/app_info_title_text"
+		android:text="@string/app_info_title"
+		android:layout_below="@id/app_info_title_image"
+		android:gravity="center"
+		android:textSize="25sp"
+		android:layout_marginTop="20dp"/>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/app_info_title_version"
+		android:text="@string/app_info_version_code"
+		android:layout_below="@id/app_info_title_text"
+		android:gravity="center"
+		android:textSize="20sp"
+		/>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:gravity="center"
+	    android:text="@string/app_info_service"
+	    android:layout_marginBottom="10dp"
+		/>
+</RelativeLayout>

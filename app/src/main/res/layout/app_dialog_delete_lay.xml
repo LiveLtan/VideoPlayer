@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/colorTextWhite"
+              android:gravity="center"
+              android:orientation="vertical"
+              android:paddingBottom="6dp"
+	>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:text="@string/app_select_deleting"
+		android:textSize="20sp"
+		android:textColor="@color/colorBasicBlack"/>
+
+	<ProgressBar
+		android:id="@+id/app_dialog_delete_progress"
+		style="@style/DeleteDialogProgressHorizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:progress="100"
+		android:secondaryProgressTint="@color/colorTextWhite"
+		/>
+</LinearLayout>

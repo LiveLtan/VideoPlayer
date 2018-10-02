@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context=".activity.VideoPlayActivity">
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		>
+
+		<SurfaceView
+			android:id="@+id/surface_view_video_play"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_gravity="top"/>
+
+		<ImageView
+			android:id="@+id/video_play_tmp_image_view"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_gravity="center"
+			android:scaleType="centerCrop"
+			android:visibility="gone"/>
+
+		<TextView
+			android:id="@+id/video_play_video_title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:ellipsize="end"
+			android:gravity="start"
+			android:paddingEnd="16dp"
+			android:paddingStart="16dp"
+			android:singleLine="true"
+			android:textColor="@color/colorTextWhite"
+			android:textSize="18sp"
+			android:visibility="gone"/>
+
+		<ImageView
+			android:id="@+id/video_play_video_pause_or_resume"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:clickable="true"
+			android:src="@drawable/video_play_video_resume"
+			android:visibility="gone"/>
+
+		<ImageView
+			android:id="@+id/video_play_mini_window"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="end|bottom"
+			android:layout_marginBottom="40dp"
+			android:layout_marginEnd="16dp"
+			android:clickable="true"
+			android:src="@drawable/floating_video_play_mini_window"
+			/>
+
+		<LinearLayout
+			android:id="@+id/video_play_during_ll"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom"
+			android:gravity="center"
+			android:orientation="horizontal"
+			android:visibility="gone"
+			>
+
+			<TextView
+				android:id="@+id/video_play_during_ll_start"
+				style="@style/VideoPlayTimeStyle"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				/>
+
+			<SeekBar
+				android:id="@+id/video_play_during_seek_ll_bar"
+				android:layout_width="0dp"
+				android:layout_height="50dp"
+				android:layout_weight="1"
+				/>
+
+			<TextView
+				android:id="@+id/video_play_during_ll_end"
+				style="@style/VideoPlayTimeStyle"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+		</LinearLayout>
+	</FrameLayout>
+</RelativeLayout>

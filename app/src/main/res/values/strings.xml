@@ -1,0 +1,55 @@
+<resources>
+	<string name="app_name">Video Player</string>
+
+	<string name="app_video_thumb_content">thumbnail</string>
+
+	<string name="app_media_detail_text">media_detail</string>
+	<string name="app_media_detail_title">media_title: %1$s</string>
+	<string name="app_media_detail_time">media_time: %1$s</string>
+	<string name="app_media_detail_during">media_during: %1$s</string>
+	<string name="app_media_detail_file_size">media_file_size: %1$s</string>
+	<string name="app_media_detail_file_path">media_file_path: %1$s</string>
+
+	<string name="app_menu_title_select">Select Item</string>
+	<!--runtime permission-->
+	<string name="request_notice">The VideoPlayer need permission,Would you like to change it</string>
+
+	<string name="scanning">Scanning SD card……</string>
+	<string name="video_no_name">no title</string>
+
+	<string name="app_access_storage">Access Storage</string>
+	<string name="app_access_storage_extra_info">Show the video on your sd card, please know that.</string>
+
+	<!--newly-->
+	<string name="app_have_no_permission">you have denied storage permission.</string>
+	<string name="app_have_no_data">Video Empty</string>
+	<string name="app_list_item_delete_share_info">Do you want to delete or share it ?</string>
+	<string name="app_delete_failure">can not delete the file.</string>
+	<string name="app_menu_ok">OK</string>
+	<string name="app_menu_share">share</string>
+	<string name="app_menu_share_to">Share To</string>
+	<string name="app_menu_delete">delete it</string>
+	<string name="app_menu_cancel">@android:string/cancel</string>
+	<string name="app_menu_no">NO</string>
+
+	<!--aluncher-->
+	<string name="app_splash_viewpager_index">Index</string>
+	<string name="app_splash_viewpager_content">Content</string>
+	<string name="app_splash_viewpager_start">Start</string>
+
+	<string name="app_about">About Player</string>
+	<string name="app_info_title">Video Player</string>
+	<string name="app_info_version_code">V1.0.0</string>
+	<string name="app_info_service">229 Tian Hua Road, TCL, lin.tan@tcl.com</string>
+
+	<!--multi select-->
+	<string name="app_select_item">Select Item</string>
+	<string name="app_select_all">Select All</string>
+	<string name="app_delete_select">Delete Select</string>
+	<string name="app_select_nothing">Please select at least one.</string>
+	<string name="app_select_delete_title">Video Delete</string>
+	<string name="app_select_deleting">Deleting, please wait.</string>
+	<string name="app_select_delete_confirm">Do you really want to delete those files? It will not recover.</string>
+
+	<string name="app_exit_confirm">press again to exit.</string>
+</resources>

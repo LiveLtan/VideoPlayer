@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<declare-styleable name="IndicatorView">
+		<attr name="indicator_icon" format="reference"/>
+		<attr name="indicator_margin" format="dimension"/>
+		<attr name="indicator_smooth" format="boolean"/>
+	</declare-styleable>
+
+	<declare-styleable name="VerticalSeekBar">
+		<attr name="seekBarRotation">
+			<!-- Clock wise - 90 deg; top = min, bottom = max -->
+			<enum name="CW90" value="90" />
+			<!-- Clock wise - 270 deg; bottom = min, top = max -->
+			<enum name="CW270" value="270" />
+		</attr>
+	</declare-styleable>
+</resources>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/colorFloatingWindow"
+	>
+
+	<FrameLayout
+		android:id="@+id/video_play_floating_surface_fr"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:paddingStart="10dp"
+		android:paddingTop="10dp"
+		android:paddingEnd="10dp"
+		>
+		<SurfaceView
+			android:id="@+id/video_play_floating_surface_view"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_gravity="center"
+			/> <!-- android:layout_marginTop="60dp"
+		    android:layout_marginStart="60dp"
+		    android:layout_marginEnd="60dp"-->
+		<ImageView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_gravity="center"
+			android:scaleType="centerCrop"
+			android:id="@+id/video_play_floating_image_view"
+			android:visibility="gone"/>
+	</FrameLayout>
+
+	<ImageView
+		android:id="@+id/floating_video_play_close_window"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentStart="true"
+		android:layout_alignParentTop="true"
+		android:src="@drawable/floating_video_play_close_window"
+		android:visibility="gone"
+		/>
+
+	<ImageView
+		android:id="@+id/floating_video_play_close_window2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignStart="@id/video_play_floating_surface_fr"
+		android:layout_alignBottom="@id/video_play_floating_surface_fr"
+		android:src="@drawable/floating_video_play_close_window"
+		android:visibility="gone"/>
+
+	<LinearLayout
+		android:id="@+id/video_play_floating_play_during_ll"
+		android:layout_width="40dp"
+		android:layout_height="match_parent"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentEnd="true"
+		android:layout_marginEnd="10dp"
+		android:layout_marginTop="10dp"
+		android:layout_marginBottom="10dp"
+		android:orientation="vertical"
+		android:gravity="center_horizontal"
+		android:visibility="gone"
+		>
+		<ImageView
+			android:id="@+id/video_play_floating_restore"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:src="@drawable/floating_video_play_restore_window"
+			/>
+
+		<TextView
+			android:id="@+id/video_play_floating_ll_start"
+			style="@style/VideoPlayTimeStyle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+		    android:visibility="gone"
+			/>
+
+		<com.lintan.videoplayer.util.view.VerticalSeekBarWrapper
+			android:layout_width="wrap_content"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+		    android:layout_marginTop="2dp"
+			>
+			<com.lintan.videoplayer.util.view.VerticalSeekBar
+				android:id="@+id/video_play_floating_seek_ll_bar"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:splitTrack="false"
+				app:seekBarRotation="CW270"/>
+			<!-- Rotation: CW90 or CW270 -->
+		</com.lintan.videoplayer.util.view.VerticalSeekBarWrapper>
+
+		<TextView
+			android:id="@+id/video_play_during_ll_end"
+			style="@style/VideoPlayTimeStyle"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:visibility="gone"/>
+
+		<ImageView
+			android:id="@+id/video_play_floating_rp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:src="@drawable/floating_video_play_play_window"
+			/>
+	</LinearLayout>
+
+</RelativeLayout>

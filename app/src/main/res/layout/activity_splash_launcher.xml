@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context=".activity.SplashLauncherActivity">
+
+	<android.support.v4.view.ViewPager
+		android:id="@+id/splash_activity_viewpager"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_gravity="top|center"
+		android:background="@color/colorAccent"
+		>
+	</android.support.v4.view.ViewPager>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom|center"
+	    android:gravity="center"
+	    android:orientation="horizontal"
+	    android:layout_marginBottom="10dp"
+	    android:id="@+id/splash_activity_viewpager_ll"
+		>
+		<View
+			android:layout_width="16dp"
+			android:layout_height="8dp"
+			android:id="@+id/splash_activity_viewpager_ll_view1"
+			android:background="@drawable/view_pager_switch_circle"
+			android:layout_marginEnd="10dp"/>
+		<View
+			android:layout_width="16dp"
+			android:layout_height="8dp"
+			android:id="@+id/splash_activity_viewpager_ll_view2"
+			android:background="@drawable/view_pager_switch_circle"
+			android:layout_marginEnd="10dp"/>
+		<View
+			android:layout_width="16dp"
+			android:layout_height="8dp"
+			android:id="@+id/splash_activity_viewpager_ll_view3"
+			android:background="@drawable/view_pager_switch_circle"
+			/>
+	</LinearLayout>
+</FrameLayout>

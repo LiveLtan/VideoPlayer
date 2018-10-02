@@ -1,0 +1,52 @@
+<resources>
+	<string name="app_name">视频播放</string>
+
+	<string name="app_video_thumb_content">缩略图</string>
+
+	<string name="app_media_detail_text">详细</string>
+	<string name="app_media_detail_title">名称: %1$s</string>
+	<string name="app_media_detail_time">拍摄时间: %1$s</string>
+	<string name="app_media_detail_during">时长: %1$s</string>
+	<string name="app_media_detail_file_size">视频大小: %1$s</string>
+	<string name="app_media_detail_file_path">文件路径: %1$s</string>
+
+	<string name="app_menu_title_select">选择项目</string>
+	<!--runtime permission-->
+	<string name="request_notice">视频播放器需要存储卡权限，确定授权？</string>
+
+	<string name="video_no_name">无标题</string>
+	<string name="app_access_storage">存储卡权限</string>
+	<string name="app_access_storage_extra_info">需要读取你存储卡的视频文件到当前列表，便于您观看</string>
+
+	<!--newly-->
+	<string name="app_have_no_permission">你拒绝了存储卡权限</string>
+	<string name="app_have_no_data">视频列表为空</string>
+	<string name="app_list_item_delete_share_info">分享或是删除这个文件</string>
+
+	<string name="app_delete_failure">删除文件失败</string>
+	<string name="app_menu_share">分享</string>
+	<string name="app_menu_share_to">分享到</string>
+	<string name="app_menu_delete">删除</string>
+	<string name="app_menu_cancel">取消</string>
+	<string name="app_menu_no">不了</string>
+
+	<!--launcher-->
+	<string name="app_splash_viewpager_index">主页</string>
+	<string name="app_splash_viewpager_content">新内容</string>
+	<string name="app_splash_viewpager_start">开始体验</string>
+	<string name="app_info_title">视频播放器</string>
+	<string name="app_info_version_code">V1.0.0</string>
+	<string name="app_menu_ok">好的</string>
+	<string name="scanning">正在扫描SD卡</string>
+	<string name="app_info_service">服务由TCL通讯科技提供，地址：天华二路229号</string>
+	<string name="app_about">关于播放器</string>
+	<string name="app_select_all">全选</string>
+	<string name="app_delete_select">删除所选</string>
+	<string name="app_select_item">选择</string>
+	<string name="app_select_nothing">至少选择一项</string>
+	<string name="app_select_delete_title">视频删除</string>
+	<string name="app_select_delete_confirm">确定要删除选中的视频吗？</string>
+	<string name="app_select_deleting">正在删除，请稍等……</string>
+	<string name="app_exit_confirm">再按一次返回桌面</string>
+
+</resources>

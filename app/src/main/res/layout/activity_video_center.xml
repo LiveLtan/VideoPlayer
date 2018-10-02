@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".activity.VideoCenterActivity">
+
+	<ListView
+		android:id="@+id/video_center_lv"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+	</ListView>
+
+	<LinearLayout
+		android:id="@+id/video_center_empty_ll"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/colorEmptyList"
+		android:gravity="center"
+		android:orientation="vertical"
+		android:visibility="gone"
+		>
+
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/ic_no_video"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:text="@string/app_have_no_data"/>
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/video_center_select_ll"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:layout_alignParentBottom="true"
+		android:orientation="horizontal"
+		android:visibility="gone"
+		>
+		<Button
+			android:id="@+id/video_center_select_ll_select_all"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:background="@drawable/video_center_bottom_button_draw"
+			android:text="@string/app_select_all"
+			android:textColor="@color/colorBasicWhite"
+			/>
+		<View
+			android:layout_height="match_parent"
+			android:layout_width="1dp"
+			android:background="#efefefef"
+			/>
+		<Button
+			android:id="@+id/video_center_select_ll_delete_select"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:background="@drawable/video_center_bottom_button_draw"
+			android:text="@string/app_delete_select"
+			android:textColor="@color/colorBasicWhite"
+			/>
+	</LinearLayout>
+</RelativeLayout>
