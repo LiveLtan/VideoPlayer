@@ -19,3 +19,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# app/release/mappings.map
+# app/build/outputs/mapping/release/mappings.map
+-printmapping release/mappings.map

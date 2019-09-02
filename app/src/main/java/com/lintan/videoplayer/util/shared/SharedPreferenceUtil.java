@@ -2,7 +2,6 @@ package com.lintan.videoplayer.util.shared;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.v4.content.SharedPreferencesCompat;
 
 import com.lintan.videoplayer.util.log.VideoLog;
 
@@ -33,8 +32,7 @@ public class SharedPreferenceUtil {
 		} else {
 			editor.putString(key, object.toString());
 		}
-
-		SharedPreferencesCompat.EditorCompat.getInstance().apply(editor);
+		editor.apply();
 	}
 
 	public static Object get(Context context, String key, Object defaultObject) {
@@ -67,7 +65,7 @@ public class SharedPreferenceUtil {
 		                                                    Context.MODE_PRIVATE);
 		SharedPreferences.Editor editor = sp.edit();
 		editor.remove(key);
-		SharedPreferencesCompat.EditorCompat.getInstance().apply(editor);
+		editor.apply();
 	}
 
 	public static boolean contains(Context context, String key) {
