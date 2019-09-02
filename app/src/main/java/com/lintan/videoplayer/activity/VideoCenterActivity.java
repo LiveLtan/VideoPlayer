@@ -15,6 +15,7 @@ import android.os.Message;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
+import android.text.Layout;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +26,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.lintan.videoplayer.R;
@@ -418,7 +420,11 @@ public class VideoCenterActivity extends VideoPlayerBaseActivity implements View
 				startActivity(AppInfoActivity.class, null);
 				break;
 			case R.id.app_select_item:
-				mMenuMode = SELECT_TO_DELETE;
+				if (mMenuMode != LIST_VIEW_NORMAL) {
+					mMenuMode = LIST_VIEW_NORMAL;
+				} else {
+					mMenuMode = SELECT_TO_DELETE;
+				}
 				changeUiByMode();
 				break;
 		}
@@ -517,7 +523,7 @@ public class VideoCenterActivity extends VideoPlayerBaseActivity implements View
 		switch (mMenuMode) {
 			case SELECT_TO_DELETE:
 				showBottomMenu();
-				mSelectMenuItem.setVisible(false);
+				mSelectMenuItem.setTitle(R.string.app_select_item_cancle);
 				break;
 			case ALL_SELECTED:
 				selectAll();
@@ -529,7 +535,7 @@ public class VideoCenterActivity extends VideoPlayerBaseActivity implements View
 				cancelSelectAll();
 				hideBottomMenu();
 				hideRightCheckBox();
-				mSelectMenuItem.setVisible(true);
+				mSelectMenuItem.setTitle(R.string.app_select_item);
 				break;
 			default:
 				break;
@@ -551,11 +557,20 @@ public class VideoCenterActivity extends VideoPlayerBaseActivity implements View
 	}
 
 	private void showBottomMenu() {
+		int height = getResources().getDimensionPixelSize(R.dimen.delete_module_item_h);
+		updateBottomMargin(mListView, height);
 		mSelectBottomLinear.setVisibility(View.VISIBLE);
 	}
 
 	private void hideBottomMenu() {
+		updateBottomMargin(mListView, 0);
 		mSelectBottomLinear.setVisibility(View.GONE);
+	}
+
+	private void updateBottomMargin(View v, int height) {
+		RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) v.getLayoutParams();
+		lp.bottomMargin = height;
+		v.setLayoutParams(lp);
 	}
 
 	private void hideRightCheckBox() {

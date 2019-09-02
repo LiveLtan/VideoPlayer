@@ -37,7 +37,7 @@
 	<LinearLayout
 		android:id="@+id/video_center_select_ll"
 		android:layout_width="match_parent"
-		android:layout_height="50dp"
+		android:layout_height="@dimen/delete_module_item_h"
 		android:layout_alignParentBottom="true"
 		android:orientation="horizontal"
 		android:visibility="gone"

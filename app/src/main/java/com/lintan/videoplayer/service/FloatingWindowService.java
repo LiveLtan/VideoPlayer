@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -200,7 +201,11 @@ public class FloatingWindowService extends Service
 		if (null == mWmParams) {
 			mWmParams = new WindowManager.LayoutParams();
 		}
-		mWmParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+		if (Build.VERSION.SDK_INT < 26) {
+			mWmParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+		} else {
+			mWmParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+		}
 		mWmParams.format = PixelFormat.RGBA_8888;
 		initScreenSize();
 		setWindowCanOutOfScreen();

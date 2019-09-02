@@ -6,4 +6,5 @@
 	<dimen name="empty_text_size">15sp</dimen>
 	<dimen name="item_title_text_size">16sp</dimen>
 	<dimen name="item_date_text_size">14sp</dimen>
+	<dimen name="delete_module_item_h">50dp</dimen>
 </resources>

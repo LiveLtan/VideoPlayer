@@ -38,11 +38,12 @@
 	<string name="app_info_version_code">V1.0.0</string>
 	<string name="app_menu_ok">好的</string>
 	<string name="scanning">正在扫描SD卡</string>
-	<string name="app_info_service">服务由TCL通讯科技提供，地址：天华二路229号</string>
-	<string name="app_about">关于播放器</string>
+	<string name="app_info_service">服务由 tanlin 提供，地址：四川.成都</string>
+	<string name="app_about">关于</string>
 	<string name="app_select_all">全选</string>
 	<string name="app_delete_select">删除所选</string>
 	<string name="app_select_item">选择</string>
+	<string name="app_select_item_cancle">取消选择</string>
 	<string name="app_select_nothing">至少选择一项</string>
 	<string name="app_select_delete_title">视频删除</string>
 	<string name="app_select_delete_confirm">确定要删除选中的视频吗？</string>

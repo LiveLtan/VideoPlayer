@@ -39,11 +39,12 @@
 
 	<string name="app_about">About Player</string>
 	<string name="app_info_title">Video Player</string>
-	<string name="app_info_version_code">V1.0.0</string>
-	<string name="app_info_service">229 Tian Hua Road, TCL, lin.tan@tcl.com</string>
+	<string name="app_info_version_code">V1.0.1</string>
+	<string name="app_info_service">By lintan.spring@gmail.com, Addr: Sichuan-Chengdu</string>
 
 	<!--multi select-->
 	<string name="app_select_item">Select Item</string>
+	<string name="app_select_item_cancle">Cancel Select</string>
 	<string name="app_select_all">Select All</string>
 	<string name="app_delete_select">Delete Select</string>
 	<string name="app_select_nothing">Please select at least one.</string>
