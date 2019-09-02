@@ -15,11 +15,12 @@ import com.lintan.videoplayer.R;
 public class ImageDrawableCache {
 
 	private static final String TAG = "VideoPlayer/ImageDrawableCache";
-	private static ImageDrawableCache mImageDrawableCache;
+	private static ImageDrawableCache sImageDrawableCache;
 
 	private static final float WIDTH_SCALE = 2.5f;
 	private static final float HEIGHT_SCALE = 1.5f;
 	private static final float CACHE_RATE_OF_WHOLE_MEM = 1.0f / 8;
+	private static int sMemoryCacheMaxSize = (int) (Runtime.getRuntime().maxMemory() * CACHE_RATE_OF_WHOLE_MEM);
 
 	private LruCache<String, BitmapDrawable> mLruCache;
 	private int defaultWidth;
@@ -27,12 +28,11 @@ public class ImageDrawableCache {
 
 	private ImageDrawableCache(Context context) {
 
-		int mMemoryCacheMaxSize = (int) (Runtime.getRuntime().maxMemory() * CACHE_RATE_OF_WHOLE_MEM);
 		Bitmap tmp = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_video_default);
 		defaultHeight = tmp.getHeight();
 		defaultWidth = tmp.getWidth();
 		tmp.recycle();
-		mLruCache = new LruCache<String, BitmapDrawable>(mMemoryCacheMaxSize) {
+		mLruCache = new LruCache<String, BitmapDrawable>(sMemoryCacheMaxSize) {
 			@Override
 			protected int sizeOf(String key, BitmapDrawable value) {
 				if (null == value || null == value.getBitmap()) {
@@ -44,14 +44,14 @@ public class ImageDrawableCache {
 	}
 
 	public static ImageDrawableCache getInstance(Context context) {
-		if (null == mImageDrawableCache) {
+		if (null == sImageDrawableCache) {
 			synchronized (ImageDrawableCache.class) {
-				if (null == mImageDrawableCache) {
-					mImageDrawableCache = new ImageDrawableCache(context);
+				if (null == sImageDrawableCache) {
+					sImageDrawableCache = new ImageDrawableCache(context);
 				}
 			}
 		}
-		return mImageDrawableCache;
+		return sImageDrawableCache;
 	}
 
 	/**

@@ -72,7 +72,8 @@ public class ListImageAdapter extends BaseAdapter implements AbsListView.OnScrol
 	private int mListItemTotalCount;
 	private boolean mIsFling;
 
-	private static final int CURRENT_ITEM_KEEP_COUNT = 20;
+	// keep count, 40 + current + 40
+	private static final int CURRENT_ITEM_KEEP_COUNT = 40;
 
 	private Context mContext;
 	private LayoutInflater inflater;
