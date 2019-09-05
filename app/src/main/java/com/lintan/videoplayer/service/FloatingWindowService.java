@@ -94,8 +94,9 @@ public class FloatingWindowService extends Service
 	private static final int TIME_MILLISECOND_UNIT = 1000;
 	private static final int PERCENT_SWITCH = 100;
 
-	private static final int MEDIA_PLAYER_PROGRESS_UPDATE = 0x0001;
+	public static final int MEDIA_PLAYER_PROGRESS_UPDATE = 0x0001;
 	private static final int MEDIA_PLAYER_RP_IMAGE_HIDE = 0x0002;
+	public static final int MEDIA_PLAYER_READY = 0x0003;
 	private VideoPlayHandler mVideoPlayHandler;
 
 	// private String mCurrentVideoPath;
@@ -146,6 +147,9 @@ public class FloatingWindowService extends Service
 					}
 					break;
 				case MEDIA_PLAYER_RP_IMAGE_HIDE:
+					break;
+				case MEDIA_PLAYER_READY:
+					windowService.mMediaPlayerControl.start();
 					break;
 				default:
 					break;

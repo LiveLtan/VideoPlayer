@@ -12,6 +12,9 @@ import com.lintan.videoplayer.bean.VideoEntity;
 import com.lintan.videoplayer.util.log.VideoLog;
 
 import java.io.IOException;
+// const value
+import static com.lintan.videoplayer.service.FloatingWindowService.MEDIA_PLAYER_PROGRESS_UPDATE;
+import static com.lintan.videoplayer.service.FloatingWindowService.MEDIA_PLAYER_READY;
 
 /**
  * common work class.
@@ -26,13 +29,28 @@ public class MyMediaControlCenter
 
 	private static final int TIME_MILLISECOND_UNIT = 1000;
 	private static final int PERCENT_SWITCH = 100;
+	private static final int PREPARE_CHECK_DELAY = 1000;
 
 	private MediaPlayer mMediaPlayer;
 	private VideoEntity mVideoEntity;
 
-	private static final int MEDIA_PLAYER_PROGRESS_UPDATE = 0x0001;
 	private static final int MEDIA_PLAYER_RP_IMAGE_HIDE = 0x0002;
 	private Handler mVideoPlayHandler;
+	private int mMediaDuration = 0;
+	private boolean mPlayerPrepared = false;
+
+	private Runnable checkPrepared = new Runnable() {
+		@Override
+		public void run() {
+			VideoLog.w(TAG, "check runnable");
+			if (mPlayerPrepared) {
+				mVideoPlayHandler.removeCallbacks(this);
+				mVideoPlayHandler.sendEmptyMessage(MEDIA_PLAYER_READY);
+			} else {
+				mVideoPlayHandler.postDelayed(this, PREPARE_CHECK_DELAY);
+			}
+		}
+	};
 
 	public interface ControllerCallBack {
 		/**
@@ -73,7 +91,14 @@ public class MyMediaControlCenter
 		mMediaPlayer = mediaPlayer;
 		mVideoEntity = videoEntity;
 		mVideoPlayHandler = handler;
-		VideoLog.e(TAG, "MyMediaControlCenter -- " + mVideoEntity.getCurrentPosition());
+		VideoLog.v(TAG, "MyMediaControlCenter init -- " + mVideoEntity.getCurrentPosition());
+		mPlayerPrepared = false;
+		try {
+			mMediaPlayer.setDataSource(videoEntity.getData());
+			mMediaPlayer.prepareAsync();
+		} catch (IOException e) {
+			VideoLog.e(TAG, "MyMediaControlCenter init exception:" + e);
+		}
 	}
 
 	public void setControllerCallBack(ControllerCallBack setting) {
@@ -113,6 +138,7 @@ public class MyMediaControlCenter
 		if (null != mMediaPlayer) {
 			VideoLog.i(TAG, "media player going to release, because you called stop method.");
 			mVideoPlayHandler.removeMessages(MEDIA_PLAYER_PROGRESS_UPDATE);
+			mVideoPlayHandler.removeCallbacks(checkPrepared);
 			mMediaPlayer.stop();
 			mMediaPlayer.release();
 			mMediaPlayer = null;
@@ -122,6 +148,8 @@ public class MyMediaControlCenter
 	@Override
 	public void onPrepared(MediaPlayer mp) {
 		VideoLog.v(TAG, "onPrepared(), video file path is " + mVideoEntity);
+		mMediaDuration = mp.getDuration();
+		mPlayerPrepared = true;
 		if (null != controllerCallBack) {
 			controllerCallBack.initSomeSelfAtPrepared();
 		}
@@ -149,16 +177,7 @@ public class MyMediaControlCenter
 	public void surfaceCreated(SurfaceHolder holder) {
 		VideoLog.d(TAG, "surfaceCreated(), video file path is " + mVideoEntity.getData());
 		mMediaPlayer.setDisplay(holder);
-		try {
-			mMediaPlayer.reset();
-			mMediaPlayer.setDataSource(mVideoEntity.getData());
-			mMediaPlayer.prepare();
-			mMediaPlayer.seekTo((int) mVideoEntity.getCurrentPosition());
-			controllerCallBack.surfaceCreated(holder);
-			//play();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		controllerCallBack.surfaceCreated(holder);
 	}
 
 	@Override
@@ -173,6 +192,7 @@ public class MyMediaControlCenter
 		if (null != mMediaPlayer) {
 			VideoLog.d(TAG, "surfaceDestroyed(), and to release in control by automatically.");
 			mVideoPlayHandler.removeMessages(MEDIA_PLAYER_PROGRESS_UPDATE);
+			mVideoPlayHandler.removeCallbacks(checkPrepared);
 			mMediaPlayer.stop();
 		}
 	}
@@ -185,6 +205,10 @@ public class MyMediaControlCenter
 		if (null == mMediaPlayer) {
 			return;
 		}
+		if (!mPlayerPrepared) {
+			mVideoPlayHandler.postDelayed(checkPrepared, PREPARE_CHECK_DELAY);
+			return;
+		}
 		mMediaPlayer.seekTo((int) mVideoEntity.getCurrentPosition());
 		mMediaPlayer.start();
 		VideoLog.d(TAG, "MediaPlayerControl start play. current = " + current);
@@ -195,6 +219,7 @@ public class MyMediaControlCenter
 	public void pause() {
 		VideoLog.v(TAG, "pause call" + mVideoEntity.getCurrentPosition());
 		mVideoPlayHandler.removeMessages(MEDIA_PLAYER_PROGRESS_UPDATE);
+		mVideoPlayHandler.removeCallbacks(checkPrepared);
 		if (null != mMediaPlayer) {
 			VideoLog.d(TAG, "to pause" + mVideoEntity.getCurrentPosition());
 			mMediaPlayer.pause();
@@ -206,7 +231,7 @@ public class MyMediaControlCenter
 		if (null == mMediaPlayer) {
 			return -1;
 		}
-		return mMediaPlayer.getDuration();
+		return mMediaDuration;
 	}
 
 	@Override
